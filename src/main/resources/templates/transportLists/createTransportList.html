@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create a new statement for cargo</h1>
+<form th:if="${cargoes.size() > 0}" th:object="${transportList}" th:action="@{/transport-lists/new/create}" th:method="post">
+    <input type="hidden" th:field="*{ownerId}">
+    <div>
+        <label for="p_price">Package price:</label>
+        <input id="p_price" type="number"  th:field="*{packagePrice}" step="0.5" required>
+    </div>
+    <div>
+        <label for="i_price">Insurance price:</label>
+        <input id="i_price" type="number"  th:field="*{insurancePrice}" step="0.5" required>
+    </div>
+    <div>
+        <label for="d_price">Delivery price:</label>
+        <input id="d_price" type="number"  th:field="*{deliveryPrice}" step="0.5" required>
+    </div>
+    <div>
+        <label for="dt">Compilation date:</label>
+        <input id="dt" type="datetime-local" th:field="*{compilationDate}" required>
+    </div>
+    <div>
+        <label for="owner">Flight:</label>
+        <select id="owner" th:field="*{flightId}">
+            <option value="">-- Select flight --</option>
+            <option th:each="flight : ${flights}" th:value="${flight.getFlightId()}" th:text="${flight.getPlaneType() + ': ' + flight.getFlightNumber() + ' ' + flight.getDateTime() + ', ' + flight.getDepartCity() + '-' + flight.getDestinCity()}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="cargo">Cargoes:</label>
+        <select id="cargo" th:field="*{cargoList}" multiple="multiple">
+            <option th:each="cargo : ${cargoes}" th:value="${cargo.getCargoId()}" th:text="${cargo.getCargoId() +'. ' + cargo.getMarking() + ', ' + cargo.getWeight() + 'kg, pack: ' + cargo.getPackageType()}"></option>
+        </select>
+    </div>
+
+
+    <button type="submit">Add</button>
+</form>
+<p th:if="${cargoes.size() == 0}">The tourist does not have cargo for delivery</p>
+</body>
+</html>

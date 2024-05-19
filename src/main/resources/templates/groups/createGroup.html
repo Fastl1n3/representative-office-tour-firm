@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Group</title>
+</head>
+<body>
+<h1>Create Group</h1>
+<form th:action="@{/groups/create}" th:object="${group}" method="post">
+  <div>
+    <label for="flight">Choose the flight to:</label>
+    <select id="flight" th:field="*{flightTo}">
+      <option value="">-- Select Flight --</option>
+      <option th:each="flight : ${flights}" th:value="${flight.getFlightId()}" th:text="${flight.getPlaneType() + ': ' + flight.getFlightNumber() + ' ' + flight.getDateTime() + ', ' + flight.getDepartCity() + '-' + flight.getDestinCity()}"></option>
+    </select>
+  </div>
+  <div>
+    <label for="flight2">Choose the flight back:</label>
+    <select id="flight2" th:field="*{flightBack}">
+      <option value="">-- Select Flight --</option>
+      <option th:each="flight : ${flights}" th:value="${flight.getFlightId()}" th:text="${flight.getPlaneType() + ': ' + flight.getFlightNumber() + ' ' + flight.getDateTime() + ', ' + flight.getDepartCity() + '-' + flight.getDestinCity()}"></option>
+    </select>
+  </div>
+  <button type="submit">Create Group</button>
+</form>
+</body>
+</html>

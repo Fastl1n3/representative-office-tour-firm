@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:each="group : ${groups}">
+
+    <a th:href="@{/groups/{id}(id=${group.getGroupId()})}" th:text="${'Group No. ' + group.getGroupId() +', number of people: '+ group.getPeopleNumber()}">user</a>
+</div>
+
+<br/>
+<hr/>
+<button><a href="/groups/new">New group</a></button>
+</body>
+</html>

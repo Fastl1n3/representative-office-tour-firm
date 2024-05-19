@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${schedule}" th:action="@{/excursions/{id}/add-schedule(id=${excId})}" th:method="post">
+
+    <input type="hidden" th:field="*{excursionId}" />
+    <div>
+        <label for="dt">Date time:</label>
+        <input id="dt" type="datetime-local" th:field="*{dateTime}" required>
+    </div>
+    <button type="submit">Add schedule</button>
+</form>
+</body>
+</html>

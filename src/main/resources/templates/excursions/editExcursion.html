@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Edit excursion</h2>
+<form th:object="${excursion}" th:action="@{/excursions/{id}/edit(id=${excursion.getExcursionId()})}" th:method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" th:field="*{description}" required></textarea>
+  </div>
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" th:field="*{price}" step="0.5" required>
+  </div>
+  <div>
+    <label for="duration">Duration (hours):</label>
+    <input type="number" id="duration" th:field="*{duration}" required>
+  </div>
+  <div>
+    <label for="agency">Agency:</label>
+    <select id="agency" th:field="*{agencyId}">
+      <option value="">-- Select agency --</option>
+      <option th:each="agency : ${agencies}" th:value="${agency.getAgencyId()}" th:text="${agency.getName()}"></option>
+    </select>
+  </div>
+  <button type="submit">Update</button>
+</form>
+</body>
+</html>

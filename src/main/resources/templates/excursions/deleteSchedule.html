@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Choose the schedule to delete</h2>
+<ul th:each="schedule: ${schedules}">
+  <li>
+    <a th:href="@{/excursions/{id}/delete-schedule/delete?dt={dt} (id=${excId}, dt=${schedule.getExcursionSchedulePK().dateTime()})}" th:text="${schedule.getExcursionSchedulePK().dateTime()}">Delete schedule</a>
+  </li>
+</ul>
+</body>
+</html>

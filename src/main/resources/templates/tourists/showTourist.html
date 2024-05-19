@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tourist</title>
+</head>
+<body>
+<p th:text="${'Firstname: ' + tourist.getFirstname()}">VALUE</p>
+<p th:text="${'Lastname: ' + tourist.getLastname()}">VALUE</p>
+<p th:text="${'Patronymic: ' + tourist.getPatronymic()}">VALUE</p>
+<p th:if="${tourist.getGender()} == 'M'" th:text="${'Gender: Male'}">VALUE</p>
+<p th:unless="${tourist.getGender()} == 'M'" th:text="${'Gender: Female'}">VALUE</p>
+<p th:if="${tourist.isChild()}" th:text="${'Date of dirth: ' + tourist.getDateOfBirth() + ', child'}">VALUE</p>
+<p th:if="${!tourist.isChild()}" th:text="${'Date of dirth: ' + tourist.getDateOfBirth() + ', adult'}">VALUE</p>
+<p th:text="${'Passport: ' + tourist.getPassportId()}">VALUE</p>
+<hr/>
+<p th:text="${'Number of visits: ' + touristInfo.getNumVisits()}">VALUE</p>
+<p th:text="${'Arrival and departure dates: '}">V</p>
+<ul th:each="datesPair : ${touristInfo.getArrAndDepDates()}">
+    <li th:text="${ datesPair.getDateTo() + ' - ' + datesPair.getDateBack()}">VALUE</li>
+</ul>
+<hr/>
+<p th:text="${'Visited hotels: '}">VALUE</p>
+<ul th:each="hotel : ${touristInfo.getHotels()}">
+    <li th:text="${hotel}">VALUE</li>
+</ul>
+<hr/>
+<p th:text="${'Visited excursions: '}">VALUE</p>
+<ul th:each="excursion : ${touristInfo.getVisitedExcursions()}">
+    <li >
+        <a th:href="${'/excursions/' + excursion.getExcursionId()}" th:text="${excursion.getName() + ', ' + excursion.getAgency() + ' - ' + excursion.getVisitDate()}"></a>
+    </li>
+</ul>
+<hr/>
+<p th:text="${'Handed over cargo: '}">VALUE</p>
+<ul th:each="cargo : ${touristInfo.getCargoList()}">
+    <li >
+        <a th:href="${'/storage/' + cargo.getCargoId()}" th:text="${cargo.getMarking() + ', ' + cargo.getWeight() + 'kg, ' + cargo.getDeliveryDate()}"></a>
+    </li>
+</ul>
+</body>
+</html>

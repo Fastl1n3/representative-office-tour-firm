@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button ><a href="/excursions/new">Add new excursion</a></button>
+<ul th:each="excursion : ${excursions}">
+    <li>
+    <a th:href="@{/excursions/{id}(id=${excursion.getExcursionId()})}" th:text="${excursion.getName() +', duration: ' + excursion.getDuration() + ' hours, price: ' + excursion.getPrice()}">user</a>
+    <p th:text="${excursion.getDescription()}" ></p>
+        <i th:text="${'Provided by the agency: ' + excursion.getAgencyName() + ', ' + excursion.getRating()}"></i>
+    </li>
+</ul>
+
+
+</body>
+</html>

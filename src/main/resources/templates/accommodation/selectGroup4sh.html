@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<h1>Compile list of accommodation</h1>
+<form th:action="@{/accommodation/show}" th:object="${selectedGroup}" method="post">
+    <label for="grp">Choose a group first:</label>
+    <select onchange="this.form.submit()" id="grp" th:field="*{groupId}" >
+        <option value="">-- Select group --</option>
+        <option th:each="group : ${groups}" th:value="${group.getGroupId()}" th:text="${'No. ' + group.getGroupId()}"></option>
+    </select>
+</form>
+
+
+</body>
+</html>

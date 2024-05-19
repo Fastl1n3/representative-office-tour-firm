@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Group</title>
+</head>
+<body>
+<p th:text="${'Group No. ' + group.getGroupId()}">VALUE</p>
+<div th:if="${flights.size() > 0}">
+  <p th:text="${'Flight to: ' + flights.get(0).getFlightNumber() + ' ' + flights.get(0).getDateTime() + ' ' + flights.get(0).getDepartCity() + '-' + flights.get(0).getDestinCity()}">
+  <p th:text="${'Flight back: ' + flights.get(1).getFlightNumber() + ' ' + flights.get(1).getDateTime() + ' ' + flights.get(1).getDepartCity() + '-' + flights.get(1).getDestinCity()}">
+</div>
+<div th:if="${flights.size() == 0}">
+  <p>Flights are not assigned!</p>
+</div>
+<br/>
+<hr/>
+<p th:text="${'Number of people: '+ group.getPeopleNumber()}">VALUE</p>
+<div th:if="${people.size() > 0}" th:each="tourist: ${people}">
+  <a th:href="@{/tourists/{id}(id=${tourist.getTouristId()})}" th:text="${tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic()}">user</a>
+  <a th:if="${tourist.getType() == 'cmp'}" th:text="${', camper'}"> </a>
+  <a th:if="${tourist.getType() == 'crg'}" th:text="${', for cargo'}"> </a>
+</div>
+<br/>
+<button><a th:href="@{/groups/{id}/add(id=${group.getGroupId()})}">Add tourist</a></button>
+</body>
+</html>

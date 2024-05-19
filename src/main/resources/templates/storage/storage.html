@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Storage</title>
+</head>
+<body>
+<h1>Storage</h1>
+<h2>Add a new statement for cargo</h2>
+<button ><a th:href="@{/storage/new}">Add</a></button>
+<hr/>
+<h2>Cargo statements:</h2>
+<ul th:each="cargo : ${cargoList}">
+    <li>
+        <a th:href="@{/storage/{id}(id=${cargo.getCargoId()})}" th:text="${cargo.getCargoId()+ '. '+ cargo.getMarking()+ ', '+ cargo.getWeight()  + 'kg - ' + cargo.getDeliveryDate() }">user</a>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Все рейсы</title>
+</head>
+<body>
+
+<div th:each="flight : ${flights}" style="cursor: pointer">
+  <a th:text="${'Flight No. ' + flight.getFlightNumber() + ', departs on ' + flight.getDateTime() + ', plane: ' + flight.getPlaneType()}" onclick="console.log(this.getAttribute('text'))">user</a>
+</div>
+
+<br/>
+<hr/>
+
+</body>
+</html>

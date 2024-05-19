@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transport lists</title>
+</head>
+<body>
+<h1>Transport lists</h1>
+<h2>Create a new transport list for tourist</h2>
+<form th:action="@{/transport-lists/new}" th:method="post">
+    <select id="grp" name="touristId" >
+        <option value="">-- Select tourist --</option>
+        <option th:each="tourist : ${tourists}" th:value="${tourist.getTouristId()}" th:text="${tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic() + ' ' + tourist.getPassportId()}"></option>
+    </select>
+    <button type="submit" >Create</button>
+</form>
+<hr/>
+<h2>Lists:</h2>
+<ul th:each="transportList : ${transportLists}">
+    <li>
+        <a th:href="@{/transport-lists/{id}(id=${transportList.getListId()})}" th:text="${'TL No. ' + transportList.getListId() +', created  on ' + transportList.getCompilationDate()}">user</a>
+    </li>
+</ul>
+</body>
+</html>

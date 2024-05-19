@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Excursion info</h2>
+<h3 th:text="${excursion.getExcursionInfo().getName()}"></h3>
+
+<p th:text="${'Duration: ' + excursion.getExcursionInfo().getDuration() + ' hours, price: ' + excursion.getExcursionInfo().getPrice()}">user</p>
+<p th:text="${excursion.getExcursionInfo().getDescription()}" ></p>
+<i th:text="${'Provided by the agency: ' + excursion.getExcursionInfo().getAgencyName() + ', ' + excursion.getExcursionInfo().getRating()}"></i>
+<br/>
+<a th:href="@{/excursions/{id}/edit(id=${excursion.getExcursionInfo().getExcursionId()})}">Edit</a>
+| <a th:href="@{/excursions/{id}/delete(id=${excursion.getExcursionInfo().getExcursionId()})}">Delete</a>
+<br/>
+<hr/>
+<h3>Schedule(click on the date to sign up!):</h3>
+<p>
+    <button><a th:href="@{/excursions/{id}/add-schedule(id=${excursion.getExcursionInfo().getExcursionId()})}">Add new schedule</a></button>
+    <button><a th:href="@{/excursions/{id}/delete-schedule(id=${excursion.getExcursionInfo().getExcursionId()})}" >Delete schedule</a></button>
+</p>
+<ul th:each="schedule: ${excursion.getScheduleList()}">
+    <li >
+        <a th:href="@{/excursions/{id}/sign-up?dt={dt} (id=${excursion.getExcursionInfo().getExcursionId()}, dt=${schedule.getExcursionSchedulePK().dateTime()})}" th:text="${schedule.getExcursionSchedulePK().dateTime()}"></a>
+    </li>
+</ul>
+</body>
+</html>
