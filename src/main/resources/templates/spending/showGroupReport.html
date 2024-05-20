@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 th:text="${'Group No. ' + groupId}"></h2>
+<div th:each="report : ${reports}">
+  <p th:text="${report.getFirstname() + ' ' + report.getLastname() + ' ' + report.getPatronymic() + ', cost: ' + report.getCost() + ', service: ' + report.getServiceType() + ' ' + report.getSpendDate()}"></p>
+</div>
+</body>
+</html>

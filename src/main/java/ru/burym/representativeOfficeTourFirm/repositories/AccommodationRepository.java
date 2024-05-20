@@ -21,10 +21,10 @@ public interface AccommodationRepository extends CrudRepository<Accommodation, I
 
     @Query("SELECT count(*) as num_tourists FROM Accommodation " +
             "WHERE check_in_date BETWEEN :startDate AND :endDate")
-    int getNumTouristsByDate(LocalDateTime startDate, LocalDateTime endDate);
+    int getNumTouristsByDate(LocalDateTime startDate, LocalDateTime endDate); // #3
 
     @Query("SELECT count(*) as num_tourists FROM Accommodation a " +
             "JOIN Tourist_Group tg ON a.tourist_group_id = tg.id " +
             "WHERE tg.tourist_type = :touristType AND check_in_date BETWEEN :startDate AND :endDate")
-    int getNumTouristsByDateAndType(LocalDateTime startDate, LocalDateTime endDate, String touristType);
+    int getNumTouristsByDateAndType(LocalDateTime startDate, LocalDateTime endDate, String touristType); // #3
 }

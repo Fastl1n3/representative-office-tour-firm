@@ -29,7 +29,11 @@ public class TouristService {
 
     @Transactional(readOnly = true)
     public Tourist findById(int id) {
-        return touristRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Tourist not found!"));
+        Tourist tourist = touristRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Tourist not found!"));
+        if (tourist.isChild()) {
+            tourist.setParentTourist(touristRepository.findById(tourist.getParent()).orElseThrow(() -> new IllegalArgumentException("Parent not found!")));
+        }
+        return tourist;
     }
 
     @Transactional(readOnly = true)

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List for customs</title>
+</head>
+<body>
+<h2 th:text="${'The list of tourists of the group No. ' + groupId}"></h2>
+
+<ol>
+  <th:block th:each="tourist: ${tourists}">
+  <li>
+    <b th:text="${tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic()}">user</b>
+    <br/>
+    <a th:text="${'Passport: ' + tourist.getPassportId() + ', ' + 'date of birth: ' + tourist.getDateOfBirth() + ', '}"></a>
+    <a th:if="${tourist.getGender() == 'M'}" th:text="${'male'}"></a>
+    <a th:if="${tourist.getGender() == 'F'}" th:text="${'female'}"></a>
+    <br/>
+    <a th:if="${tourist.getTouristType() == 'cmp'}" th:text="${'Tourist type: camper'}"> </a>
+    <a th:if="${tourist.getTouristType() == 'crg'}" th:text="${'Tourist type: for cargo'}"> </a>
+  </li>
+  </th:block>
+</ol>
+</body>
+</html>

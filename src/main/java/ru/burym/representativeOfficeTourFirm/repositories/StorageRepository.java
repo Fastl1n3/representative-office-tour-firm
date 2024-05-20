@@ -42,9 +42,9 @@ public interface StorageRepository extends CrudRepository<Storage, Integer> {
             "FROM planes) " +
             "SELECT num_seats, weight, cargo_planes, cargo_pass_planes, cargo_planes + cargo_pass_planes as all_planes " +
             "FROM w_and_n, num_planes ")
-    StorageStat getStorageStatByDate(LocalDateTime start_date, LocalDateTime end_date);
+    StorageStat getStorageStatByDate(LocalDateTime start_date, LocalDateTime end_date); // #9
 
-    @Query("SELECT marking, COUNT(*) as num_cargo, COUNT(*) / (SELECT COUNT(*) FROM Storage) as fraction FROM Storage " +
+    @Query("SELECT marking, COUNT(*) as num_cargo, COUNT(*)::float8 / (SELECT COUNT(*) FROM Storage) as fraction FROM Storage " +
             "GROUP BY marking ")
-    CargoTypeStat getCArgoTypeStat();
+    List<CargoTypeStat> getCargoTypeStat(); // #12
 }

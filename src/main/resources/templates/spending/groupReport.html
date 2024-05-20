@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+<h2>Select group:</h2>
+<form th:action="@{/spending/group-report}" th:method="post">
+    <label for="grp">Group:</label>
+    <select id="grp" name="groupId" >
+        <option value="">-- Select group --</option>
+        <option th:each="group : ${groups}" th:value="${group.getGroupId()}" th:text="${'No. ' + group.getGroupId()}"></option>
+    </select>
+    <label for="type">Tourist type(optional):</label>
+    <select id="type" name="type" >
+        <option value="none">None type</option>
+        <option  th:value="${'crg'}" th:text="${'for cargo'}"></option>
+        <option  th:value="${'cmp'}" th:text="${'camper'}"></option>
+    </select>
+    <button type="submit" >Next</button>
+</form>
+
 
 </body>
 </html>

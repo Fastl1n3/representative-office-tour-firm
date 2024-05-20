@@ -8,7 +8,6 @@ import ru.burym.representativeOfficeTourFirm.models.entities.TouristGroup;
 import ru.burym.representativeOfficeTourFirm.models.outputs.TouristAccomOutput;
 import ru.burym.representativeOfficeTourFirm.models.outputs.TouristExcurOutput;
 import ru.burym.representativeOfficeTourFirm.models.outputs.TouristWithTypeOutput;
-import ru.burym.representativeOfficeTourFirm.models.queries.TouristTypeStat;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.Optional;
 @Repository
 public interface TouristGroupRepository extends CrudRepository<TouristGroup, Integer> {
 
-    @Query("SELECT t.tourist_id, t.firstname, t.lastname, t.patronymic, t.date_of_birth, t.passport_id, tg.tourist_type as type " +
+    @Query("SELECT t.tourist_id, t.firstname, t.lastname, t.patronymic, t.date_of_birth, t.passport_id, tg.tourist_type " +
             "FROM Tourist t JOIN Tourist_Group tg ON t.tourist_id = tg.tourist_id " +
             "WHERE tg.group_id = :id")
     List<TouristWithTypeOutput> findTouristsByGroupId(int id);
@@ -42,17 +41,17 @@ public interface TouristGroupRepository extends CrudRepository<TouristGroup, Int
     List<TouristExcurOutput> findRelevantTouristsForExcursionByDate(LocalDateTime dateTime);
 
 
-    @Query("SELECT campers / for_cargo * 100 as percent_cmp_to_crg FROM (SELECT SUM(CASE tourist_type WHEN 'cmp' THEN 1 ELSE 0 END) as campers, " +
+    @Query("SELECT campers::float8 / for_cargo * 100 as percent_cmp_to_crg FROM (SELECT SUM(CASE tourist_type WHEN 'cmp' THEN 1 ELSE 0 END) as campers, " +
             "SUM(CASE tourist_type WHEN 'crg' THEN 1 ELSE 0 END) as for_cargo " +
             "FROM Tourist_group) as cnt ")
-    TouristTypeStat getAttitudeCampersToForCargo();
+    Optional<Double> getRatioCampersToForCargo(); // #14
 
-    @Query("SELECT campers / for_cargo * 100 as percent_cmp_to_crg FROM " +
+    @Query("SELECT campers::float8 / for_cargo * 100 as percent_cmp_to_crg FROM " +
             "(SELECT SUM(CASE tourist_type WHEN 'cmp' THEN 1 ELSE 0 END) as campers, " +
             "        SUM(CASE tourist_type WHEN 'crg' THEN 1 ELSE 0 END) as for_cargo " +
             "FROM Tourist_group " +
             "JOIN \"Group\" g on tourist_group.group_id = g.group_id " +
             "JOIN flight f on f.flight_id = g.flight_to " +
-            "WHERE f.date_time BETWEEN :start_date AND :end_date) as cnt ")
-    TouristTypeStat getAttitudeCampersToForCargo(LocalDateTime startDate, LocalDateTime endDate);
+            "WHERE f.date_time BETWEEN :startDate AND :endDate) as cnt ")
+    Optional<Double> getRatioCampersToForCargoByDate(LocalDateTime startDate, LocalDateTime endDate); // #14
 }

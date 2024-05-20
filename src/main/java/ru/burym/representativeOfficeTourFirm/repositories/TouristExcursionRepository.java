@@ -25,5 +25,5 @@ public interface TouristExcursionRepository extends CrudRepository<TouristExcurs
 
     @Query("SELECT COUNT(*) num_people FROM Tourist_Excursion " +
             "WHERE visit_date BETWEEN :start_date::timestamp AND :end_date::timestamp ")
-    Integer getCountTouristsByDate(LocalDateTime start_date, LocalDateTime end_date);
+    Integer getCountTouristsByDate(LocalDateTime start_date, LocalDateTime end_date); // #6
 }

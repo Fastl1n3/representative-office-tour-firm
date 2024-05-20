@@ -39,4 +39,9 @@ public class TouristExcursionService {
     public List<TouristExcurOutput> findSignedTourists(int excId, LocalDateTime dateTime) {
         return touristExcursionRepository.findTouristsOnExcursion(excId, dateTime);
     }
+
+    @Transactional(readOnly = true)
+    public int getCountTouristsByDate(LocalDateTime start_date, LocalDateTime end_date) {
+        return touristExcursionRepository.getCountTouristsByDate(start_date, end_date);
+    }
 }

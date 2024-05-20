@@ -43,7 +43,7 @@ public interface ExcursionRepository extends CrudRepository<Excursion, Integer> 
             "FROM max_people, cnts JOIN Excursion e ON cnts.excursion_id = e.excursion_id " +
             "    JOIN Excursions_agency ea ON e.agency_id = ea.agency_id " +
             "WHERE cnt = max_p ")
-    List<MostPopularExcursion> getMostPopular();
+    List<MostPopularExcursion> getMostPopular(); // #7
 
 
 }

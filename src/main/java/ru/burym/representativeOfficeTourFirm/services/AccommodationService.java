@@ -7,6 +7,7 @@ import ru.burym.representativeOfficeTourFirm.models.entities.Accommodation;
 import ru.burym.representativeOfficeTourFirm.models.queries.TouristWithAccommodation;
 import ru.burym.representativeOfficeTourFirm.repositories.AccommodationRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -27,5 +28,15 @@ public class AccommodationService {
     @Transactional(readOnly = true)
     public List<TouristWithAccommodation> getTouristAccommodationByGroupId(int groupId) {
         return accommodationRepository.getTouristAccommodationByGroupId(groupId);
+    }
+
+    @Transactional(readOnly = true)
+    public int getNumTouristsByDate(LocalDateTime startDate, LocalDateTime endDate) {
+        return accommodationRepository.getNumTouristsByDate(startDate, endDate);
+    }
+
+    @Transactional(readOnly = true)
+    public int getNumTouristsByDateAndType(LocalDateTime startDate, LocalDateTime endDate, String touristType) {
+        return accommodationRepository.getNumTouristsByDateAndType(startDate, endDate, touristType);
     }
 }

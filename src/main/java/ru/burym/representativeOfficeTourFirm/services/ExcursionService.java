@@ -8,6 +8,7 @@ import ru.burym.representativeOfficeTourFirm.models.entities.ExcursionSchedule;
 import ru.burym.representativeOfficeTourFirm.models.entities.ExcursionsAgency;
 import ru.burym.representativeOfficeTourFirm.models.outputs.ExcursionOutput;
 import ru.burym.representativeOfficeTourFirm.models.outputs.ExcursionWithScheduleOutput;
+import ru.burym.representativeOfficeTourFirm.models.queries.MostPopularExcursion;
 import ru.burym.representativeOfficeTourFirm.repositories.ExcursionRepository;
 import ru.burym.representativeOfficeTourFirm.repositories.ExcursionsAgencyRepository;
 
@@ -75,4 +76,15 @@ public class ExcursionService {
     public void delete(int id) {
         excursionRepository.deleteById(id);
     }
+
+    @Transactional(readOnly = true)
+    public List<MostPopularExcursion> getMostPopular() {
+        return excursionRepository.getMostPopular();
+    }
+    @Transactional(readOnly = true)
+    public List<ExcursionsAgency> getBestAgency() {
+        return excursionsAgencyRepository.getBestAgency();
+    }
+
+
 }

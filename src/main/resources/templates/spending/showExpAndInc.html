@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense and Income</title>
+</head>
+<body>
+<h2>Expense and Income from <span th:text="${start}"></span> to <span th:text="${end}"></span></h2>
+<div th:each="info : ${expAndIncList}">
+    <p th:text="${info.getSpendDate() + '. ' + info.getServiceType() + ',  expense: ' + info.getExpense() + ',  income: ' + info.getIncome() + ',  profit: ' + info.getProfit()}"></p>
+</div>
+</body>
+</html>

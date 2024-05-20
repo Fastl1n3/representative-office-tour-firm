@@ -5,14 +5,13 @@
     <title>Title</title>
 </head>
 <body>
+<p><button><a href="/groups/new">New group</a></button></p>
+<p><button><a href="/groups/ratio">Ratio campers to for cargo</a></button></p>
+<hr/>
 
 <div th:each="group : ${groups}">
-
     <a th:href="@{/groups/{id}(id=${group.getGroupId()})}" th:text="${'Group No. ' + group.getGroupId() +', number of people: '+ group.getPeopleNumber()}">user</a>
 </div>
 
-<br/>
-<hr/>
-<button><a href="/groups/new">New group</a></button>
 </body>
 </html>

@@ -12,5 +12,5 @@ public interface ExcursionsAgencyRepository extends CrudRepository<ExcursionsAge
 
     @Query("SELECT name, rating FROM Excursions_agency " +
             "WHERE rating = (SELECT MAX(rating) FROM Excursions_agency) ")
-    List<ExcursionsAgency> getBestAgency();
+    List<ExcursionsAgency> getBestAgency(); // #7
 }

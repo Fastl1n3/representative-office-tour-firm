@@ -22,7 +22,7 @@ public interface FlightRepository extends CrudRepository<Flight, Integer> {
             "JOIN Storage s on tl.list_id = s.transport_list_id " +
             "WHERE tl.flight_id =num_seats.flight_id) " +
             "SELECT flight_id, all_seats, all_weight FROM num_seats, weight ")
-    Optional<FlightWorkload> getFlightWorkload(int flightId);
+    Optional<FlightWorkload> getFlightWorkload(int flightId); // #8
 
     @Query("SELECT g.group_id, t.firstname, t.lastname, t.patronymic, t.date_of_birth, hotel_name, type_room FROM Flight " +
             "JOIN \"Group\" g on flight.flight_id = g.flight_to OR flight.flight_id = g.flight_back " +
@@ -31,13 +31,13 @@ public interface FlightRepository extends CrudRepository<Flight, Integer> {
             "JOIN Accommodation a on tg.id = a.tourist_group_id " +
             "JOIN hotel_room hr on hr.id = a.hotel_room_id " +
             "WHERE flight_id = :flightId ")
-    List<TouristInfoByFlight> getTouristInfoByFlight(int flightId);
+    List<TouristInfoByFlight> getTouristInfoByFlightId(int flightId); // #15
 
     @Query("SELECT s.marking, s.weight, s.package, t.firstname owner_firstname, t.lastname owner_lastname, t.patronymic owner_patronymic FROM Flight f " +
             "JOIN Transport_list tl on f.flight_id = tl.flight_id " +
             "JOIN Storage s on tl.list_id = s.transport_list_id " +
             "JOIN Tourist t on t.tourist_id = s.owner_id " +
-            "WHERE flight_id = :flightId")
-    List<CargoInfoByFlight> getCargoInfoByFlight(int flightId);
+            "WHERE f.flight_id = :flightId")
+    List<CargoInfoByFlight> getCargoInfoByFlight(int flightId); // #15
 
 }

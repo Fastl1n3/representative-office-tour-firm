@@ -5,10 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.burym.representativeOfficeTourFirm.models.entities.Group;
-import ru.burym.representativeOfficeTourFirm.models.entities.Tourist;
 import ru.burym.representativeOfficeTourFirm.models.entities.TouristGroup;
 import ru.burym.representativeOfficeTourFirm.services.FlightService;
 import ru.burym.representativeOfficeTourFirm.services.GroupService;
+
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/groups")
@@ -26,9 +27,7 @@ public class GroupController {
 
     @GetMapping()
     public String showAll(Model model) {
-        var groups = groupService.findAll();
-
-        model.addAttribute("groups", groups);
+        model.addAttribute("groups", groupService.findAll());
         return "groups/groups";
     }
 
@@ -68,6 +67,42 @@ public class GroupController {
     }
 
 
+    @GetMapping("/ratio")
+    public String ratioCampersToForCargo() {
+
+        return "groups/ratio";
+    }
+
+    @PostMapping("/ratio")
+    public String getRatioCampersToForCargo(@ModelAttribute("start") LocalDateTime start, @ModelAttribute("end") LocalDateTime end, Model model) {
+        if (start == null || end == null) {
+            model.addAttribute("ratio", groupService.getRatioCampersToForCargo());
+        }
+        else {
+            model.addAttribute("ratio", groupService.getRatioCampersToForCargoByDate(start, end));
+        }
+
+        return "groups/showRatio";
+    }
+
+    @GetMapping("/{id}/list")
+    public String listForCustoms(@PathVariable("id") int id, Model model) {
+        model.addAttribute("groupId", id);
+        return "groups/listForCustoms";
+    }
+
+    @PostMapping("/{id}/list")
+    public String showListForCustoms(@PathVariable("id") int id, @ModelAttribute("type") String touristType, Model model) {
+        model.addAttribute("groupId", id);
+        if (touristType.equals("none")) {
+            model.addAttribute("tourists", groupService.getTouristInfoByGroupId(id));
+        }
+        else {
+            model.addAttribute("tourists", groupService.getTouristInfoByGroupIdAndType(id, touristType));
+        }
+
+        return "groups/showListForCustoms";
+    }
 
 
 }

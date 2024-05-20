@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List for customs</title>
+</head>
+<body>
+<h2>Compile list for customs</h2>
+<form th:action="@{/groups/{id}/list(id=${groupId})}" th:method="post">
+  <label for="type">Tourist type(optional):</label>
+  <select id="type" name="type" >
+    <option value="none">None type</option>
+    <option  th:value="${'crg'}" th:text="${'for cargo'}"></option>
+    <option  th:value="${'cmp'}" th:text="${'camper'}"></option>
+  </select>
+  <button type="submit" >Next</button>
+</form>
+
+</body>
+</html>

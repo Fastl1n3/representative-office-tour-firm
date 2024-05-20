@@ -4,8 +4,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.burym.representativeOfficeTourFirm.models.entities.Storage;
 import ru.burym.representativeOfficeTourFirm.models.outputs.CargoWithOwnerOutput;
+import ru.burym.representativeOfficeTourFirm.models.queries.CargoTypeStat;
+import ru.burym.representativeOfficeTourFirm.models.queries.StorageStat;
 import ru.burym.representativeOfficeTourFirm.repositories.StorageRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -50,4 +53,15 @@ public class StorageService {
     public List<Storage> findWithoutTransportListByTouristId(int touristId) {
         return storageRepository.findWithoutTransportListByTouristId(touristId);
     }
+
+    @Transactional(readOnly = true)
+    public StorageStat getStorageStatByDate(LocalDateTime start_date, LocalDateTime end_date) {
+        return storageRepository.getStorageStatByDate(start_date, end_date);
+    }
+
+    @Transactional(readOnly = true)
+    public List<CargoTypeStat> getCargoTypeStat() {
+        return storageRepository.getCargoTypeStat();
+    }
+
 }

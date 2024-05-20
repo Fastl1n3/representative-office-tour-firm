@@ -70,5 +70,25 @@ public class GroupService {
     public List<TouristAccomOutput> findTouristsForAccommodationByGroupId(int groupId) {
         return touristGroupRepository.findTouristsForAccommodationByGroupId(groupId);
     }
+
+    @Transactional(readOnly = true)
+    public double getRatioCampersToForCargo() {
+        return touristGroupRepository.getRatioCampersToForCargo().orElseThrow(() -> new IllegalArgumentException("Tourists is not found!"));
+    }
+
+    @Transactional(readOnly = true)
+    public double getRatioCampersToForCargoByDate(LocalDateTime startDate, LocalDateTime endDate) {
+        return touristGroupRepository.getRatioCampersToForCargoByDate(startDate, endDate).orElseThrow(() -> new IllegalArgumentException("Tourists is not found on these dates!"));
+    }
+
+    @Transactional(readOnly = true)
+    public List<TouristWithTypeOutput> getTouristInfoByGroupId(int groupId) {
+        return groupRepository.getTouristInfoByGroupId(groupId);
+    }
+
+    @Transactional(readOnly = true)
+    public List<TouristWithTypeOutput> getTouristInfoByGroupIdAndType(int groupId, String touristType) {
+        return groupRepository.getTouristInfoByGroupIdAndType(groupId, touristType);
+    }
 }
 

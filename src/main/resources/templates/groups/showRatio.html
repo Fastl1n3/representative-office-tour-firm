@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ratio</title>
+</head>
+<body>
+<h2 th:if="${start != null && end != null}" th:text="${'The ratio of the campers to for cargo from ' + start + ' to ' + end + ':'}"></h2>
+<h2 th:if="${start == null && end == null}" th:text="${'The ratio of the campers to for cargo: '}"></h2>
+<h3 th:text="${ratio + '%'}"></h3>
+</body>
+</html>
