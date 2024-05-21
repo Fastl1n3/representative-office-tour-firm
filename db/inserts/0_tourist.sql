@@ -1,0 +1,14 @@
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Boris', 'Jonson', 'Ivanovich', 3571003117, 'M', '2003-07-26', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Irina', 'Jonson', 'Valeryevna', 507344123, 'F', '1999-02-25', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Sasha', 'Jonson', 'Borisovich', 123473746, 'M', '2022-07-15', true, 2);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Ivan', 'Ivanov', 'Ivanovich', 123456789, 'M', '1980-02-20', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Maria', 'Petrova', 'Sergeevna', 223456789, 'F', '1987-07-15', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Sergey', 'Sidorov', 'Nikolaevich', 323456789, 'M', '1990-05-30', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Anna', 'Ivanova', 'Ivanovna', 423456789, 'F', '2010-03-10', true, 4);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Alex', 'Ivanov', 'Ivanovich', 523456789, 'M', '2012-08-21', true, 4);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Elena', 'Orlova', 'Dmitrievna', 623456789, 'F', '1989-12-01', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Dmitry', 'Vasilyev', 'Vasilievich', 723456789, 'M', '1975-10-16', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Olga', 'Sokolova', 'Petrovna', 823456789, 'F', '1995-04-22', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Nikita', 'Novikov', 'Alexeevich', 923456789, 'M', '1992-06-18', false, null);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Ksenia', 'Vasilyeva', 'Dmitrievna', 1023456789, 'F', '2015-01-29', true, 10);
+INSERT INTO m_burym.tourist (firstname, lastname, patronymic, passport_id, gender, date_of_birth, is_child, parent) VALUES ('Darya', 'Bondarenko', 'Sergeevna', 5542111222, 'F', '2003-09-06', false, null);

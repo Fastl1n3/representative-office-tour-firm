@@ -1,0 +1,16 @@
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (3, '2024-03-16 18:00:00.000000', '2024-03-26 14:00:00.000000', 5);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (4, '2024-03-16 18:00:00.000000', '2024-03-26 14:00:00.000000', 5);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (7, '2024-03-20 16:30:00.000000', '2024-03-25 13:00:00.000000', 1);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (8, '2024-03-20 16:30:00.000000', '2024-03-25 13:00:00.000000', 3);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (9, '2024-03-20 16:30:00.000000', '2024-03-25 13:00:00.000000', 6);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (10, '2024-03-20 16:30:00.000000', '2024-03-25 13:00:00.000000', 7);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (6, '2024-03-20 16:30:00.000000', '2024-03-25 13:00:00.000000', 8);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (19, '2024-05-09 00:30:00.000000', '2024-05-18 08:00:00.000000', 8);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (20, '2024-05-09 00:30:00.000000', '2024-05-18 08:00:00.000000', 9);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (21, '2024-05-09 00:30:00.000000', '2024-05-18 08:00:00.000000', 9);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (22, '2024-05-09 00:30:00.000000', '2024-05-18 08:00:00.000000', 9);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (23, '2024-05-09 00:30:00.000000', '2024-05-18 08:00:00.000000', 10);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (24, '2024-05-09 00:30:00.000000', '2024-05-18 08:00:00.000000', 8);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (25, '2024-05-09 00:30:00.000000', '2024-05-18 08:00:00.000000', 11);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (2, '2024-03-16 18:00:00.000000', '2024-03-26 14:00:00.000000', 5);
+INSERT INTO m_burym.accommodation (tourist_group_id, check_in_date, check_out_date, hotel_room_id) VALUES (34, '2024-04-26 12:00:00.000000', '2024-05-30 14:00:00.000000', 8);

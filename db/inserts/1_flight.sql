@@ -1,0 +1,14 @@
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('ABC123', 'C', '2024-03-15 10:00:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('GHI789', 'C', '2024-04-17 15:45:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('JKL101', 'CP', '2024-03-26 18:00:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('MNO123', 'C', '2024-03-19 09:20:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('STU789', 'C', '2024-03-21 14:30:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('VWX101', 'CP', '2024-03-25 17:15:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('YZA123', 'C', '2024-05-07 20:45:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('RTY455', 'CP', '2024-05-18 12:00:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('PQR456', 'CP', '2024-03-20 11:10:00.000000', 'Moscow', 'Athens');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('DEF456', 'CP', '2024-03-16 12:30:00.000000', 'Moscow', 'Athens');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('BCD456', 'CP', '2024-05-08 22:00:00.000000', 'Moscow', 'Athens');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('TRT421', 'C', '2024-05-19 22:00:00.000000', 'Athens', 'Moscow');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('PQR456', 'CP', '2024-04-26 11:10:00.000000', 'Moscow', 'Athens');
+INSERT INTO m_burym.flight (flight_number, plane_type, date_time, depart_city, destin_city) VALUES ('JKL101', 'CP', '2024-04-30 18:00:00.000000', 'Athens', 'Moscow');

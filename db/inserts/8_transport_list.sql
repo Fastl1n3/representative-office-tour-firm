@@ -1,0 +1,3 @@
+INSERT INTO m_burym.transport_list (seats_number, package_price, insurance_price, delivery_price, flight_id, compilation_date, owner_id) VALUES (2, 76.00, 100.00, 400.00, 12, '2024-05-18 09:32:00.000000', 12);
+INSERT INTO m_burym.transport_list (seats_number, package_price, insurance_price, delivery_price, flight_id, compilation_date, owner_id) VALUES (1, 150.00, 200.00, 1000.00, 9, '2024-04-30 22:20:00.000000', 12);
+INSERT INTO m_burym.transport_list (seats_number, package_price, insurance_price, delivery_price, flight_id, compilation_date, owner_id) VALUES (3, 100.00, 70.00, 355.00, 14, '2024-04-30 01:25:00.000000', 9);
