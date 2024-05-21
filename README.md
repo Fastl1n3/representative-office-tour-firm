@@ -34,4 +34,9 @@
 * Spring Data JDBC
 * Spring Web
 * Thymeleaf
-* PostgreSQL
+* PostgreSQL  
+## Запуск
+```
+./mvnw clean install
+./mvnw spring-boot:run
+```
