@@ -36,6 +36,7 @@
 * Thymeleaf
 * PostgreSQL  
 ## Запуск
+Сначала нужно создать и заполнить src/main/resources/application.properies по .origin файлу
 ```
 ./mvnw clean install
 ./mvnw spring-boot:run
