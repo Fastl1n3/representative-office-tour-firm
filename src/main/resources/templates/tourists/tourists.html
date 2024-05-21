@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Все люди</title>
 </head>
 <body>
-
+<a href="/tourists/num-tourists">Number of tourists who visited country</a>
+<hr/>
 <div th:each="tourist : ${tourists}">
   <p>
     <a th:href="@{/tourists/{id}(id=${tourist.getTouristId()})}" th:text="${tourist.getFirstname() + ', ' + tourist.getLastname()+', pass: ' + tourist.getPassportId()}">user</a>

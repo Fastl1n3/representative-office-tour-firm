@@ -15,7 +15,7 @@
     <input type="hidden" th:field="*{visitDate}" />
     <div>
         <label for="trst">Tourist:</label>
-        <select id="trst" th:field="*{touristGroupId}">
+        <select id="trst" th:field="*{touristGroupId}" required>
             <option value="0">-- Select tourist --</option>
             <option th:each="tourist : ${tourists}" th:value="${tourist.getTouristGroupId()}" th:text="${tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic() + ' ' + tourist.getTouristType()}"></option>
         </select>

@@ -45,11 +45,6 @@ public class StorageService {
     }
 
     @Transactional(readOnly = true)
-    public List<Storage> findWithoutTransportList() {
-        return storageRepository.findWithoutTransportList();
-    }
-
-    @Transactional(readOnly = true)
     public List<Storage> findWithoutTransportListByTouristId(int touristId) {
         return storageRepository.findWithoutTransportListByTouristId(touristId);
     }

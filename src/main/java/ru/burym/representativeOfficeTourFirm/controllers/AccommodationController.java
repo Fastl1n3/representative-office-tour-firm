@@ -13,6 +13,8 @@ import ru.burym.representativeOfficeTourFirm.services.AccommodationService;
 import ru.burym.representativeOfficeTourFirm.services.GroupService;
 import ru.burym.representativeOfficeTourFirm.services.HotelRoomService;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/accommodation")
 public class AccommodationController {
@@ -31,7 +33,7 @@ public class AccommodationController {
     }
 
     @GetMapping()
-    public String index(Model model) {
+    public String index() {
         return "accommodation/accommodation";
     }
 
@@ -71,6 +73,18 @@ public class AccommodationController {
 
         model.addAttribute("accommodations", accommodationService.getTouristAccommodationByGroupId(group.getGroupId()));
         return "accommodation/showAccommodation";
+    }
+
+    @GetMapping("/count-hotels")
+    public String getCountHotels() {
+        return "accommodation/countHotels";
+    }
+
+    @PostMapping("/count-hotels")
+    public String showCountHotels(@ModelAttribute("start") LocalDateTime start, @ModelAttribute("end") LocalDateTime end, Model model) {
+        model.addAttribute("hotels", hotelRoomService.getCountHotelsByDate(start, end));
+
+        return "accommodation/showCountHotels";
     }
 
 }

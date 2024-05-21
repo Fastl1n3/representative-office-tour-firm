@@ -10,6 +10,7 @@ import ru.burym.representativeOfficeTourFirm.models.queries.TouristInfoByFlight;
 import ru.burym.representativeOfficeTourFirm.repositories.FlightRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FlightService {
@@ -27,8 +28,13 @@ public class FlightService {
     }
 
     @Transactional(readOnly = true)
-    public FlightWorkload getFlightWorkload(int flightId) {
-        return flightRepository.getFlightWorkload(flightId).orElseThrow(() -> new IllegalArgumentException("Flight not found"));
+    public Flight findById(int id) {
+        return flightRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Flight not found"));
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<FlightWorkload> getFlightWorkload(int flightId) {
+        return flightRepository.getFlightWorkload(flightId);
     }
 
     @Transactional(readOnly = true)
@@ -40,7 +46,6 @@ public class FlightService {
     public List<CargoInfoByFlight> getCargoInfoByFlight(int flightId) {
         return flightRepository.getCargoInfoByFlight(flightId);
     }
-
 
 
 

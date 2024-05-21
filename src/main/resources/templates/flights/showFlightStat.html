@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight info</title>
+</head>
+<body>
+<h2 th:text="${'Flight No. ' + flight.getFlightNumber() + ' - ' + flight.getDateTime() }"></h2>
+<p>
+   <b th:text="${'Workload:'}"></b>
+    <br/>
+    <span th:if="${workloadOpt.isPresent()}" th:text="${'Number of seats with cargo: ' + workloadOpt.get().getAllSeats() + ', weight: ' + workloadOpt.get().getAllWeight() + 'kg'}"></span>
+    <span th:if="${workloadOpt.isEmpty()}" th:text="${'Plane is empty.'}"></span>
+
+</p>
+<hr/>
+
+<b th:text="${'Tourst info: '}"></b>
+<ul th:each="tourist: ${touristInfo}">
+    <li>
+        <a th:text="${'Group No. ' + tourist.getGroupId() + ', ' + tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic() + ' ' + tourist.getDateOfBirth()}"></a>
+        <br/>
+        <a th:text="${'Hotel: ' + tourist.getHotelName() + ', room: '+ tourist.getTypeRoom()}"></a>
+    </li>
+</ul>
+<hr/>
+<b th:text="${'Cargo info: '}"></b>
+<ul th:each="cargo: ${cargoInfo}">
+    <li>
+        <a th:text="${cargo.getMarking() + ' ' + cargo.getWeight() + 'kg, package: ' + cargo.getPackageType()}"></a>
+        <br/>
+        <a th:text="${'Owner: ' + cargo.getOwnerFirstname() + ' ' + cargo.getOwnerLastname() + ' ' + cargo.getOwnerPatronymic()}"></a>
+    </li>
+</ul>
+
+</body>
+</html>

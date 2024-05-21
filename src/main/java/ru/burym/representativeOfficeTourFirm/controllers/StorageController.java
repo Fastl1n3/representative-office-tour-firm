@@ -8,6 +8,8 @@ import ru.burym.representativeOfficeTourFirm.models.entities.Storage;
 import ru.burym.representativeOfficeTourFirm.services.StorageService;
 import ru.burym.representativeOfficeTourFirm.services.TouristService;
 
+import java.time.LocalDateTime;
+
 @Controller
 @RequestMapping("/storage")
 public class StorageController {
@@ -51,4 +53,25 @@ public class StorageController {
 
         return "storage/showCargo";
     }
+
+    @GetMapping("/stat/cargo-types")
+    public String showCargoTypesStat(Model model) {
+        model.addAttribute("cargoTypes", storageService.getCargoTypeStat());
+
+        return "storage/showCargoTypesStat";
+    }
+
+    @GetMapping("/stat/turnover")
+    public String turnover() {
+
+        return "storage/turnover";
+    }
+
+    @PostMapping("/stat/turnover")
+    public String showTurnover(@ModelAttribute("start") LocalDateTime start, @ModelAttribute("end") LocalDateTime end, Model model) {
+        model.addAttribute("storageStat", storageService.getStorageStatByDate(start, end));
+
+        return "storage/showTurnover";
+    }
+
 }

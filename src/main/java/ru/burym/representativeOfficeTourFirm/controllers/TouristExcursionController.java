@@ -11,19 +11,17 @@ import ru.burym.representativeOfficeTourFirm.services.TouristExcursionService;
 import java.time.LocalDateTime;
 
 @Controller
+@RequestMapping("/excursions")
 public class TouristExcursionController {
-
-    private final ExcursionService excursionService;
 
     private final TouristExcursionService touristExcursionService;
 
     @Autowired
-    public TouristExcursionController(ExcursionService excursionService, TouristExcursionService touristExcursionService) {
-        this.excursionService = excursionService;
+    public TouristExcursionController(TouristExcursionService touristExcursionService) {
         this.touristExcursionService = touristExcursionService;
     }
 
-    @GetMapping("/excursions/{id}/sign-up")
+    @GetMapping("/{id}/sign-up")
     public String signUp(@PathVariable("id") int excId, @RequestParam("dt") LocalDateTime dateTime, Model model) {
         TouristExcursion touristExcursion = new TouristExcursion();
         touristExcursion.setExcursionId(excId);
@@ -37,9 +35,22 @@ public class TouristExcursionController {
         return "excursions/signUpTourist";
     }
 
-    @PostMapping("/excursions/{id}/sign-up")
+    @PostMapping("/{id}/sign-up")
     public String signUp(@PathVariable("id") int excId, @ModelAttribute("touristExcursion") TouristExcursion touristExcursion) {
         touristExcursionService.save(touristExcursion);
         return "redirect:/excursions/" + excId +"/sign-up?dt=" + touristExcursion.getVisitDate();
     }
+
+    @GetMapping("/num-people")
+    public String getNumPeople() {
+        return "excursions/numPeople";
+    }
+
+    @PostMapping("/num-people")
+    public String showNumPeople(@ModelAttribute("start") LocalDateTime start, @ModelAttribute("end") LocalDateTime end, Model model) {
+        model.addAttribute("num", touristExcursionService.getCountTouristsByDate(start, end));
+
+        return "excursions/showNumPeople";
+    }
+
 }

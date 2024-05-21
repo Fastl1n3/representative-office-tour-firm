@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stat</title>
+</head>
+<body>
+<h2>Statistic by type of cargo</h2>
+<ul th:each="cargoType : ${cargoTypes}">
+  <li>
+      <b th:text="${cargoType.getMarking()}"></b>
+      <br/>
+      <a th:text="${'Number: ' + cargoType.getNumCargo() + ', fraction: ' + cargoType.getFraction()}"></a>
+  </li>
+</ul>
+</body>
+</html>

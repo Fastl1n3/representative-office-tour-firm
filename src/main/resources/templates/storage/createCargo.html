@@ -13,7 +13,7 @@
 <form th:object="${cargo}" th:action="@{/storage/new}" th:method="post">
     <div>
         <label for="owner">Owner:</label>
-        <select id="owner" th:field="*{ownerId}">
+        <select id="owner" th:field="*{ownerId}" required>
             <option value="">-- Select owner --</option>
             <option th:each="owner : ${owners}" th:value="${owner.getTouristId()}" th:text="${owner.getFirstname() + ' ' + owner.getLastname() + ' ' + owner.getPatronymic() + ' ' + owner.getPassportId()}"></option>
         </select>

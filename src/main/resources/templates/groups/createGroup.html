@@ -9,15 +9,15 @@
 <form th:action="@{/groups/create}" th:object="${group}" method="post">
   <div>
     <label for="flight">Choose the flight to:</label>
-    <select id="flight" th:field="*{flightTo}">
-      <option value="">-- Select Flight --</option>
+    <select id="flight" th:field="*{flightTo}" required>
+      <option value="">No flight</option>
       <option th:each="flight : ${flights}" th:value="${flight.getFlightId()}" th:text="${flight.getPlaneType() + ': ' + flight.getFlightNumber() + ' ' + flight.getDateTime() + ', ' + flight.getDepartCity() + '-' + flight.getDestinCity()}"></option>
     </select>
   </div>
   <div>
     <label for="flight2">Choose the flight back:</label>
-    <select id="flight2" th:field="*{flightBack}">
-      <option value="">-- Select Flight --</option>
+    <select id="flight2" th:field="*{flightBack}" required>
+      <option value="">No flight</option>
       <option th:each="flight : ${flights}" th:value="${flight.getFlightId()}" th:text="${flight.getPlaneType() + ': ' + flight.getFlightNumber() + ' ' + flight.getDateTime() + ', ' + flight.getDepartCity() + '-' + flight.getDestinCity()}"></option>
     </select>
   </div>

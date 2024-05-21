@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Turnover</title>
+</head>
+<body>
+<h2>Turnover</h2>
+<form th:action="@{/storage/stat/turnover}" method="post">
+  <label for="start">Start date:</label>
+  <input id="start" type="datetime-local" name="start"  required>
+
+  <label for="end">End date:</label>
+  <input id="end" type="datetime-local" name="end"  required>
+
+  <button type="submit">Next</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The best</title>
+</head>
+<body>
+<h2>The most popular excursion:</h2>
+<p th:each="excursion: ${excursions}">
+  <a th:href="@{/excursions/{id}(id=${excursion.getExcursionId()})}" th:text="${excursion.getName()}"></a>
+  <i th:text="${', agency: ' + excursion.getAgency()}"></i>
+</p>
+<br/>
+<hr/>
+<h2>The best agency:</h2>
+<p th:each="agency: ${agencies}">
+  <a th:text="${agency.getName() + ', rating: ' + agency.getRating()}"></a>
+</p>
+</body>
+</html>

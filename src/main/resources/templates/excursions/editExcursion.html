@@ -25,7 +25,7 @@
   </div>
   <div>
     <label for="agency">Agency:</label>
-    <select id="agency" th:field="*{agencyId}">
+    <select id="agency" th:field="*{agencyId}" required>
       <option value="">-- Select agency --</option>
       <option th:each="agency : ${agencies}" th:value="${agency.getAgencyId()}" th:text="${agency.getName()}"></option>
     </select>

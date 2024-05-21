@@ -9,7 +9,6 @@ import ru.burym.representativeOfficeTourFirm.models.entities.ExcursionSchedule;
 import ru.burym.representativeOfficeTourFirm.services.ExcursionService;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/excursions")
@@ -101,5 +100,13 @@ public class ExcursionController {
     public String deleteSchedule(@PathVariable("id") int id, @RequestParam("dt")LocalDateTime dateTime) {
         excursionService.deleteSchedule(id, dateTime);
         return "redirect:/excursions/" + id;
+    }
+
+    @GetMapping("/best")
+    public String getMostPopular(Model model) {
+        model.addAttribute("excursions", excursionService.getMostPopular());
+        model.addAttribute("agencies", excursionService.getBestAgency());
+
+        return "excursions/showBest";
     }
 }

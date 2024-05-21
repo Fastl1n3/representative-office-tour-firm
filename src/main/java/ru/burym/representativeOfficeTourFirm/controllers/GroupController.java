@@ -68,17 +68,19 @@ public class GroupController {
 
 
     @GetMapping("/ratio")
-    public String ratioCampersToForCargo() {
-
+    public String ratioCampersToForCargo(Model model) {
+        model.addAttribute("minDate", LocalDateTime.MIN);
         return "groups/ratio";
     }
 
     @PostMapping("/ratio")
     public String getRatioCampersToForCargo(@ModelAttribute("start") LocalDateTime start, @ModelAttribute("end") LocalDateTime end, Model model) {
-        if (start == null || end == null) {
+        if (start.equals(LocalDateTime.MIN) || end.equals(LocalDateTime.MIN)) {
+            model.addAttribute("isInterval", false);
             model.addAttribute("ratio", groupService.getRatioCampersToForCargo());
         }
         else {
+            model.addAttribute("isInterval", true);
             model.addAttribute("ratio", groupService.getRatioCampersToForCargoByDate(start, end));
         }
 
@@ -94,7 +96,7 @@ public class GroupController {
     @PostMapping("/{id}/list")
     public String showListForCustoms(@PathVariable("id") int id, @ModelAttribute("type") String touristType, Model model) {
         model.addAttribute("groupId", id);
-        if (touristType.equals("none")) {
+        if (touristType.equals("all")) {
             model.addAttribute("tourists", groupService.getTouristInfoByGroupId(id));
         }
         else {

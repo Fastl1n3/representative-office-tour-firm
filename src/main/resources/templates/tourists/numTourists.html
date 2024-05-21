@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number of tourists</title>
+</head>
+<body>
+<h2>Num of tourists who visited country</h2>
+<form th:action="@{/tourists/num-tourists}" method="post">
+    <div>
+        <label for="start">Start date:</label>
+        <input id="start" type="datetime-local" name="start"  required>
+    </div>
+    <div>
+        <label for="end">End date:</label>
+        <input id="end" type="datetime-local" name="end"  required>
+    </div>
+    <div>
+        <label for="type">Tourist type(optional):</label>
+        <select id="type" name="type" >
+            <option value="all">All types</option>
+            <option  th:value="${'crg'}" th:text="${'for cargo'}"></option>
+            <option  th:value="${'cmp'}" th:text="${'camper'}"></option>
+        </select>
+    </div>
+
+  <button type="submit">Next</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Turnover</title>
+</head>
+<body>
+<h2 th:text="${'Turnover from ' + start + ' to ' + end}"></h2>
+<p th:text="${'Number of seats: ' + storageStat.getNumSeats()}"></p>
+<p th:text="${'All weight: ' + storageStat.getWeight()}"></p>
+<p>
+    <span th:text="${'Number of all planes: ' + storageStat.getAllPlanes()}"></span>
+    <span th:text="${', cargo planes: ' + storageStat.getCargoPlanes()}"></span>
+    <span th:text="${', cargo-passenger planes: ' + storageStat.getCargoPassPlanes()}"></span>
+</p>
+</body>
+</html>
