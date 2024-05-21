@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create tourist</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+<body>
+<h1>Create tourist</h1>
+<form th:object="${tourist}" th:action="@{/tourists/create}" method="post">
+    <label for="firstname">Firstname:</label>
+    <input type="text" th:field="*{firstname}" id="firstname" required>
+    <br>
+    <label for="lastname">Lastname:</label>
+    <input type="text" th:field="*{lastname}" id="lastname" required>
+    <br>
+    <label for="patronymic">Patronymic:</label>
+    <input type="text" th:field="*{patronymic}" id="patronymic">
+    <br>
+    <label for="passportId">Passport id:</label>
+    <input type="number" th:field="*{passportId}" id="passportId" required>
+    <br>
+    <label for="gender">Gender:</label>
+    <select th:field="*{gender}" id="gender" required>
+        <option value="">--Select gender--</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select>
+    <br>
+    <label for="dateOfBirth">Date of birth:</label>
+    <input type="date" th:field="*{dateOfBirth}" id="dateOfBirth" required>
+    <br>
+    <label for="isChild">Is child:</label>
+    <input type="checkbox" th:field="*{child}" id="isChild">
+    <br>
+    <label for="parent">Parent(optional):</label>
+    <select th:field="*{parent}" id="parent">
+        <option value="">-- Select parent --</option>
+        <option th:each="parent : ${parents}" th:value="${parent.getTouristId()}" th:text="${parent.getFirstname() + ' ' + parent.getLastname()}"></option>
+    </select>
+    <br>
+    <button type="submit">Create</button>
+</form>
+
+<script>
+    $(function(){
+        $("#parent").select2();
+    });
+</script>
+</body>
+</html>

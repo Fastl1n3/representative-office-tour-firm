@@ -8,25 +8,28 @@
 <h1>Create Accommodation</h1>
 
 <form th:if="${tourists.size() > 0}" th:action="@{/accommodation/create}" th:object="${accommodation}" method="post">
-
+    <div>
     <label for="trst">Choose a tourist:</label>
     <select id="trst" th:field="*{touristGroupId}" required>
         <option value="">-- Select tourist --</option>
         <option th:each="tourist : ${tourists}" th:value="${tourist.getTouristGroupId()}" th:text="${tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic() + ', ' + tourist.getPassportId()}"></option>
     </select>
-
+    </div>
+    <div>
     <label for="hotel">Choose the hotel room:</label>
     <select id="hotel" th:field="*{hotelRoomId}" required>
         <option value="">-- Select hotel room --</option>
         <option th:each="hotel : ${hotels}" th:value="${hotel.getId()}" th:text="${hotel.getHotelName() + ', ' + hotel.getTypeRoom() + ', ' + hotel.getDayPrice()}"></option>
     </select>
-
-    <label for="ch_in">Enter the check-in date: </label>
-    <input id="ch_in" type="datetime-local" th:field="*{checkInDate}" required/>
-
-    <label for="ch_out">Enter the check-out date: </label>
-    <input id="ch_out" type="datetime-local" th:field="*{checkOutDate}" required/>
-
+    </div>
+    <div>
+        <label for="ch_in">Enter the check-in date: </label>
+        <input id="ch_in" type="datetime-local" th:field="*{checkInDate}" required/>
+    </div>
+    <div>
+        <label for="ch_out">Enter the check-out date: </label>
+        <input id="ch_out" type="datetime-local" th:field="*{checkOutDate}" required/>
+    </div>
     <button type="submit">Create Accommodation</button>
 </form>
 <div th:if="${tourists.size() == 0}">

@@ -22,6 +22,11 @@ public class TouristService {
         this.storageRepository = storageRepository;
     }
 
+    @Transactional
+    public void save(Tourist tourist) {
+        touristRepository.save(tourist);
+    }
+
     @Transactional(readOnly = true)
     public List<Tourist> findAll() {
         return (List<Tourist>) touristRepository.findAll();

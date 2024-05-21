@@ -57,4 +57,11 @@ public class TransportListController {
         return "redirect:/transport-lists";
     }
 
+    @GetMapping("/{id}")
+    public String showTransportList(@PathVariable("id") int id, Model model) {
+        model.addAttribute("tlOut", transportListService.findWithCargoById(id));
+
+        return "transportLists/showTransportList";
+    }
+
 }

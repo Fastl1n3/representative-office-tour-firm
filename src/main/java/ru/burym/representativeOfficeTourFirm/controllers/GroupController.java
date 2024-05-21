@@ -52,6 +52,23 @@ public class GroupController {
         return "redirect:/groups";
     }
 
+
+    @GetMapping("/{id}/edit")
+    public String editGroup(@PathVariable("id") int id, Model model) {
+        Group group = groupService.findById(id);
+        model.addAttribute("group", group);
+        model.addAttribute("flights", flightService.findAll());
+
+        return "groups/editGroup";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String update(@PathVariable("id") int id, @ModelAttribute("group") Group group) {
+        System.out.println(group.getGroupId() + " " + group.getFlightTo() + " " + group.getFlightBack());
+        groupService.save(group);
+        return "redirect:/groups/" + id;
+    }
+
     @GetMapping("/{id}/add")
     public String addTourist(@PathVariable("id") int id, Model model) {
         model.addAttribute("touristGroup", new TouristGroup());

@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Controller
 @RequestMapping("/accommodation")
 public class AccommodationController {
-
+    //TODO назначить жилье новой группе
     private final GroupService groupService;
 
     private final HotelRoomService hotelRoomService;

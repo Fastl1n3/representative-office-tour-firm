@@ -4,12 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.domain.Persistable;
 
 import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
-public class Accommodation {
+public class Accommodation  implements Persistable<Integer> {
 
     @Id
     @Setter
@@ -23,6 +24,16 @@ public class Accommodation {
 
     @Setter
     private Integer hotelRoomId;
+
+    @Override
+    public Integer getId() {
+        return touristGroupId;
+    }
+
+    @Override
+    public boolean isNew() {
+        return true;
+    }
 
     public Accommodation(int touristGroupId, LocalDateTime checkInDate, LocalDateTime checkOutDate, int hotelRoomId) {
         this.touristGroupId = touristGroupId;

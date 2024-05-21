@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create tourist</h1>
+<form th:object="${tourist}" th:action="@{/tourists/{id}/edit(id=${tourist.getTouristId()})}" method="post">
+    <input type="hidden" th:field="*{touristId}">
+    <label for="firstname">Firstname:</label>
+    <input type="text" th:field="*{firstname}" id="firstname" required>
+    <br>
+    <label for="lastname">Lastname:</label>
+    <input type="text" th:field="*{lastname}" id="lastname" required>
+    <br>
+    <label for="patronymic">Patronymic:</label>
+    <input type="text" th:field="*{patronymic}" id="patronymic">
+    <br>
+    <label for="passportId">Passport id:</label>
+    <input type="number" th:field="*{passportId}" id="passportId" required>
+    <br>
+    <label for="gender">Gender:</label>
+    <select th:field="*{gender}" id="gender" required>
+        <option value="">--Select gender--</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select>
+    <br>
+    <label for="dateOfBirth">Date of birth:</label>
+    <input type="date" th:field="*{dateOfBirth}" id="dateOfBirth" required>
+    <br>
+    <label for="isChild">Is child:</label>
+    <input type="checkbox" th:field="*{child}" id="isChild">
+    <br>
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

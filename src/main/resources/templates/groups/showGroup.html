@@ -14,6 +14,9 @@
   <p>Flights are not assigned!</p>
 </div>
 <p>
+  <button><a th:href="@{/groups/{id}/edit(id=${group.getGroupId()})}">Edit</a></button>
+</p>
+<p>
   <a th:href="@{/groups/{id}/list(id=${group.getGroupId()})}" th:text="${'Compile list for customs'}"></a>
 </p>
 

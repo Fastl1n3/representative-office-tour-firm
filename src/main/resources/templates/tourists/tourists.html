@@ -5,7 +5,9 @@
   <title>Все люди</title>
 </head>
 <body>
-<a href="/tourists/num-tourists">Number of tourists who visited country</a>
+<p><a href="/tourists/num-tourists">Number of tourists who visited country</a></p>
+
+<p><button><a th:href="@{/tourists/new}">New tourist</a></button></p>
 <hr/>
 <div th:each="tourist : ${tourists}">
   <p>

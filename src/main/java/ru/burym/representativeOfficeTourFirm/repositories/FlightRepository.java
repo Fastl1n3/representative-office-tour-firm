@@ -28,8 +28,8 @@ public interface FlightRepository extends CrudRepository<Flight, Integer> {
             "JOIN \"Group\" g on flight.flight_id = g.flight_to OR flight.flight_id = g.flight_back " +
             "JOIN Tourist_group tg on g.group_id = tg.group_id " +
             "JOIN Tourist t on t.tourist_id = tg.tourist_id " +
-            "JOIN Accommodation a on tg.id = a.tourist_group_id " +
-            "JOIN hotel_room hr on hr.id = a.hotel_room_id " +
+            "LEFT JOIN Accommodation a on tg.id = a.tourist_group_id " +
+            "LEFT JOIN hotel_room hr on hr.id = a.hotel_room_id " +
             "WHERE flight_id = :flightId ")
     List<TouristInfoByFlight> getTouristInfoByFlightId(int flightId); // #15
 

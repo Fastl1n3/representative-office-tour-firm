@@ -16,6 +16,8 @@ public interface StorageRepository extends CrudRepository<Storage, Integer> {
 
     List<Storage> findByOwnerId(int ownerId);
 
+    List<Storage> findByTransportListId(int transportListId);
+
     @Modifying
     @Query("UPDATE storage SET transport_list_id = :transportListId WHERE cargo_id = :cargoId")
     void setTransportListById(int cargoId, int transportListId);

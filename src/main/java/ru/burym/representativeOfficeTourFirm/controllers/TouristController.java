@@ -39,6 +39,32 @@ public class TouristController {
         return "tourists/showTourist";
     }
 
+    @GetMapping("/new")
+    public String newTourist(Model model) {
+        model.addAttribute("tourist", new Tourist());
+        model.addAttribute("parents", touristService.findAllAdult());
+        return "tourists/createTourist";
+    }
+
+    @PostMapping("/create")
+    public String create(@ModelAttribute("tourist") Tourist tourist) {
+        touristService.save(tourist);
+        return "redirect:/tourists";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String edit(@PathVariable("id") int id, Model model) {
+        Tourist tourist = touristService.findById(id);
+        model.addAttribute("tourist", tourist);
+        return "tourists/editTourist";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String update(@PathVariable("id") int id, @ModelAttribute("tourist") Tourist tourist) {
+        touristService.save(tourist);
+        return "redirect:/tourists/" + id;
+    }
+
     @GetMapping("/num-tourists")
     public String numTourists() {
         return "tourists/numTourists";

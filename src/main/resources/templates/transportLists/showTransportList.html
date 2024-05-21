@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transport list</title>
+</head>
+<body>
+<h2 th:text="${'Transport list No. ' + tlOut.getTransportList().getListId() +', created  on ' + tlOut.getTransportList().getCompilationDate()}"></h2>
+<p th:text="${'Owner: ' + tlOut.getTourist().getFirstname() + ' ' + tlOut.getTourist().getLastname() + ' ' + tlOut.getTourist().getPatronymic() + ' ' + tlOut.getTourist().getPassportId()}"></p>
+<p th:text="${'Number of seats: ' + tlOut.getTransportList().getSeatsNumber()}"></p>
+<p th:text="${'Package price: ' + tlOut.getTransportList().getPackagePrice()}"></p>
+<p th:text="${'Insurance price: ' + tlOut.getTransportList().getInsurancePrice()}"></p>
+<p th:text="${'Delivery price: ' + tlOut.getTransportList().getDeliveryPrice()}"></p>
+<p>
+    <span th:text="${'Flight: No. ' + tlOut.getFlight().getFlightNumber() + ' - ' + tlOut.getFlight().getDateTime()}"></span>
+    <span th:if="${tlOut.getFlight().getPlaneType() == 'C'}" th:text="${', cargo plane.'}"></span>
+    <span th:if="${tlOut.getFlight().getPlaneType() == 'CP'}" th:text="${', cargo and passenger plane.'}"></span>
+</p>
+<hr/>
+<ul th:each="cargo : ${tlOut.getCargoList()}">
+   <li>
+       <a th:href="@{/storage/{id}(id=${cargo.getCargoId()})}" th:text="${cargo.getMarking() + ' ' + cargo.getWeight() + 'kg'}"></a>
+   </li>
+</ul>
+</body>
+</html>

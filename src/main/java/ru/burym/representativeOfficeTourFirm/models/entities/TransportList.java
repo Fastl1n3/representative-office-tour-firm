@@ -1,8 +1,5 @@
 package ru.burym.representativeOfficeTourFirm.models.entities;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,28 +19,18 @@ public class TransportList {
     @Setter
     private Integer ownerId;
 
-    @NotEmpty
-   // @Positive(message = "Price should be greater than 0")
     @Setter
     private Integer seatsNumber;
 
-    @NotNull
-   // @Positive(message = "Price should be greater than 0")
     @Setter
     private BigDecimal packagePrice;
 
-    @NotNull
-   // @Positive(message = "Price should be greater than 0")
     @Setter
     private BigDecimal insurancePrice;
 
-    @NotNull
-  //  @Positive(message = "Price should be greater than 0")
     @Setter
     private BigDecimal deliveryPrice;
 
-
-  //  @NotNull
     @Setter
     private LocalDateTime compilationDate;
 

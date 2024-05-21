@@ -14,6 +14,7 @@
 <p th:if="${!tourist.isChild()}" th:text="${'Date of dirth: ' + tourist.getDateOfBirth() + ', adult'}">VALUE</p>
 <p th:text="${'Passport: ' + tourist.getPassportId()}">VALUE</p>
 <p th:if="${tourist.isChild()}" ><a th:href="${'/tourists/' + tourist.getParent()}" th:text="${'Parent: ' + tourist.getParentTourist().getFirstname() + ' ' + tourist.getParentTourist().getLastname()}"> </a></p>
+<button><a th:href="@{/tourists/{id}/edit(id=${tourist.getTouristId()})}">Edit</a></button>
 <hr/>
 <p th:text="${'Number of visits: ' + touristInfo.getNumVisits()}">VALUE</p>
 <p th:text="${'Arrival and departure dates: '}">V</p>

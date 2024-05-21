@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Create Group</title>
+    <meta charset="UTF-8">
+    <title>Edit</title>
 </head>
 <body>
-<h2>Create Group</h2>
-<form th:action="@{/groups/create}" th:object="${group}" method="post">
+<h2>Edit group</h2>
+<form th:action="@{/groups/{id}/edit(id=${group.getGroupId()})}" th:object="${group}" method="post">
+  <input type="hidden" th:field="*{groupId}">
+  <input type="hidden" th:field="*{peopleNumber}">
   <div>
     <label for="flight">Choose the flight to:</label>
     <select id="flight" th:field="*{flightTo}">
@@ -21,7 +23,7 @@
       <option th:each="flight : ${flights}" th:value="${flight.getFlightId()}" th:text="${flight.getPlaneType() + ': ' + flight.getFlightNumber() + ' ' + flight.getDateTime() + ', ' + flight.getDepartCity() + '-' + flight.getDestinCity()}"></option>
     </select>
   </div>
-  <button type="submit">Create Group</button>
+  <button type="submit">Update</button>
 </form>
 </body>
 </html>
