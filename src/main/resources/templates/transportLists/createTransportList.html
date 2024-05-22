@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create</title>
 </head>
 <body>
 <h1>Create a new statement for cargo</h1>
@@ -25,15 +25,15 @@
         <input id="dt" type="datetime-local" th:field="*{compilationDate}" required>
     </div>
     <div>
-        <label for="owner">Flight:</label>
-        <select id="owner" th:field="*{flightId}">
+        <label for="fl">Flight:</label>
+        <select id="fl" th:field="*{flightId}" required>
             <option value="">-- Select flight --</option>
             <option th:each="flight : ${flights}" th:value="${flight.getFlightId()}" th:text="${flight.getPlaneType() + ': ' + flight.getFlightNumber() + ' ' + flight.getDateTime() + ', ' + flight.getDepartCity() + '-' + flight.getDestinCity()}"></option>
         </select>
     </div>
     <div>
         <label for="cargo">Cargoes:</label>
-        <select id="cargo" th:field="*{cargoList}" multiple="multiple">
+        <select id="cargo" th:field="*{cargoList}" multiple="multiple" required>
             <option th:each="cargo : ${cargoes}" th:value="${cargo.getCargoId()}" th:text="${cargo.getCargoId() +'. ' + cargo.getMarking() + ', ' + cargo.getWeight() + 'kg, pack: ' + cargo.getPackageType()}"></option>
         </select>
     </div>

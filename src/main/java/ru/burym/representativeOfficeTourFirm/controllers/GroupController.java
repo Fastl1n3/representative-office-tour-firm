@@ -34,7 +34,8 @@ public class GroupController {
     @GetMapping("/new")
     public String newGroup(Model model) {
         model.addAttribute("group", new Group());
-        model.addAttribute("flights", flightService.findAll());
+        model.addAttribute("flightsTo", flightService.findAllPassengersTo());
+        model.addAttribute("flightsBack", flightService.findAllPassengersBack());
         return "groups/createGroup";
     }
 

@@ -28,6 +28,21 @@ public class FlightService {
     }
 
     @Transactional(readOnly = true)
+    public List<Flight> findAllPassengersTo() {
+        return flightRepository.findAllPassengersTo();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Flight> findAllPassengersBack() {
+        return flightRepository.findAllPassengersBack();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Flight> findAllBack() {
+        return flightRepository.findAllBack();
+    }
+
+    @Transactional(readOnly = true)
     public Flight findById(int id) {
         return flightRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Flight not found"));
     }

@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Transport lists</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
 <h1>Transport lists</h1>
 <h2>Create a new transport list for tourist</h2>
 <form th:action="@{/transport-lists/new}" th:method="post">
-    <select id="grp" name="touristId" >
+    <select id="trst" name="touristId" required>
         <option value="">-- Select tourist --</option>
         <option th:each="tourist : ${tourists}" th:value="${tourist.getTouristId()}" th:text="${tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic() + ' ' + tourist.getPassportId()}"></option>
     </select>
@@ -21,5 +24,11 @@
         <a th:href="@{/transport-lists/{id}(id=${transportList.getListId()})}" th:text="${'TL No. ' + transportList.getListId() +', created  on ' + transportList.getCompilationDate()}">user</a>
     </li>
 </ul>
+
+<script>
+    $(function(){
+        $("#trst").select2();
+    });
+</script>
 </body>
 </html>

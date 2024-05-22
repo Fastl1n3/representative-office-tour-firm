@@ -22,10 +22,6 @@ public interface StorageRepository extends CrudRepository<Storage, Integer> {
     @Query("UPDATE storage SET transport_list_id = :transportListId WHERE cargo_id = :cargoId")
     void setTransportListById(int cargoId, int transportListId);
 
-
-    @Query("SELECT * FROM storage WHERE transport_list_id IS NULL")
-    List<Storage> findWithoutTransportList();
-
     @Query("SELECT * FROM storage WHERE transport_list_id IS NULL AND owner_id = :touristId")
     List<Storage> findWithoutTransportListByTouristId(int touristId);
 
@@ -46,7 +42,7 @@ public interface StorageRepository extends CrudRepository<Storage, Integer> {
             "FROM w_and_n, num_planes ")
     StorageStat getStorageStatByDate(LocalDateTime start_date, LocalDateTime end_date); // #9
 
-    @Query("SELECT marking, COUNT(*) as num_cargo, COUNT(*)::float8 / (SELECT COUNT(*) FROM Storage) as fraction FROM Storage " +
+    @Query("SELECT marking, COUNT(*) as num_cargo, ROUND(COUNT(*)::numeric / (SELECT COUNT(*) FROM Storage), 2) as fraction FROM Storage " +
             "GROUP BY marking ")
     List<CargoTypeStat> getCargoTypeStat(); // #12
 }

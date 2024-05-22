@@ -5,14 +5,18 @@
     <title>Cargo</title>
 </head>
 <body>
-<h3>Cargo</h3>
-<p th:text="${cargoWithOwner.getCargo().getCargoId() + '.  Marking: ' + cargoWithOwner.getCargo().getMarking() }">user</p>
+<h3 th:text="${'Cargo No. ' + cargoWithOwner.getCargo().getCargoId()}"></h3>
+<p th:text="${'Marking: ' + cargoWithOwner.getCargo().getMarking() }">user</p>
 <p th:text="${'Weight: '+ cargoWithOwner.getCargo().getWeight() + 'kg'}">user</p>
 <p th:text="${'Package: '+ cargoWithOwner.getCargo().getPackageType()}">user</p>
 <p th:text="${'Date of delivery to storage:: '+ cargoWithOwner.getCargo().getDeliveryDate()}">user</p>
 <p th:text="${'Price: '+ cargoWithOwner.getCargo().getPrice()}">user</p>
-<p th:text="${'Owner: '+ cargoWithOwner.getTourist().getFirstname() + ' ' + cargoWithOwner.getTourist().getLastname() + ' ' + cargoWithOwner.getTourist().getPatronymic()}">user</p>
-<p th:if="${cargoWithOwner.getCargo().getTransportListId() != null}" th:text="${'Transport list to which cargo is attached: No. '+ cargoWithOwner.getCargo().getTransportListId()}">user</p>
+<p>
+    Owner: <a th:href="@{/tourists/{id}(id=${cargoWithOwner.getTourist().getTouristId()})}" th:text="${cargoWithOwner.getTourist().getFirstname() + ' ' + cargoWithOwner.getTourist().getLastname() + ' ' + cargoWithOwner.getTourist().getPatronymic()}"></a>
+</p>
+<p th:if="${cargoWithOwner.getCargo().getTransportListId() != null}" >
+    Transport list to which cargo is attached: <a th:href="@{/transport-lists/{id}(id=${cargoWithOwner.getCargo().getTransportListId()})}" th:text="${'No. '+ cargoWithOwner.getCargo().getTransportListId()}"></a>
+</p>
 <p th:if="${cargoWithOwner.getCargo().getTransportListId() == null}" th:text="${'Transport list is not attached'}"></p>
 </body>
 </html>

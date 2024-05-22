@@ -9,10 +9,10 @@
 
 <form th:action="@{/groups/ratio}" method="post">
   <label for="start">Start date:</label>
-  <input id="start" th:type="datetime-local" name="start">
+  <input id="start" th:type="datetime-local" name="start" required>
 
   <label for="end">End date:</label>
-  <input id="end" th:type="datetime-local" name="end">
+  <input id="end" th:type="datetime-local" name="end" required>
   <button type="submit" >Select</button>
 </form>
 <br/>

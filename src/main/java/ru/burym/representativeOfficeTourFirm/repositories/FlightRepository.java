@@ -40,4 +40,12 @@ public interface FlightRepository extends CrudRepository<Flight, Integer> {
             "WHERE f.flight_id = :flightId")
     List<CargoInfoByFlight> getCargoInfoByFlight(int flightId); // #15
 
+    @Query("SELECT * FROM Flight WHERE depart_city='Moscow' AND destin_city='Athens' AND plane_type='CP'")
+    List<Flight> findAllPassengersTo();
+
+    @Query("SELECT * FROM Flight WHERE depart_city='Athens' AND destin_city='Moscow' AND plane_type='CP'")
+    List<Flight> findAllPassengersBack();
+
+    @Query("SELECT * FROM Flight WHERE depart_city='Athens' AND destin_city='Moscow'")
+    List<Flight> findAllBack();
 }

@@ -11,7 +11,7 @@
 <hr/>
 <div th:each="tourist : ${tourists}">
   <p>
-    <a th:href="@{/tourists/{id}(id=${tourist.getTouristId()})}" th:text="${tourist.getFirstname() + ', ' + tourist.getLastname()+', pass: ' + tourist.getPassportId()}">user</a>
+    <a th:href="@{/tourists/{id}(id=${tourist.getTouristId()})}" th:text="${tourist.getFirstname() + ' ' + tourist.getLastname() + ' ' + tourist.getPatronymic() + ', pass: ' + tourist.getPassportId()}">user</a>
   </p>
 </div>
 

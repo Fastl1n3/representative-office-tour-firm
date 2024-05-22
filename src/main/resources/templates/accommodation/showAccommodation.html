@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List of accommodation</title>
 </head>
 <body>
-<div th:each="accommodation : ${accommodations}">
-    <p th:text="${accommodation.getFirstname() + ' ' + accommodation.getLastname() + ' ' + accommodation.getPatronymic() + ', ' + accommodation.getDateOfBirth() + ', passport: ' + accommodation.getPassportId() + '. Hotel: ' + accommodation.getHotelName() + ', room: ' + accommodation.getTypeRoom() + '. Dates: ' + accommodation.getCheckInDate() + ' - ' + accommodation.getCheckOutDate()}"></p>
-</div>
+<h2 th:text="${'List of accommodation by group No. ' + selectedGroup.getGroupId()}"></h2>
+<ul th:each="accommodation : ${accommodations}">
+    <li>
+        <p><b th:text="${accommodation.getFirstname() + ' ' + accommodation.getLastname() + ' ' + accommodation.getPatronymic()}"></b></p>
+        <p th:text="${accommodation.getDateOfBirth() + ', passport: ' + accommodation.getPassportId()}"></p>
+        <p th:text="${'Hotel: ' + accommodation.getHotelName() + ', room: ' + accommodation.getTypeRoom() + '. Dates: ' + accommodation.getCheckInDate() + ' - ' + accommodation.getCheckOutDate()}"></p>
+    </li>
+</ul>
 </body>
 </html>

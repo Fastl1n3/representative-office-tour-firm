@@ -44,7 +44,7 @@ public class TransportListController {
         transportList.setOwnerId(touristId);
 
         model.addAttribute("transportList", transportList);
-        model.addAttribute("flights", flightService.findAll());
+        model.addAttribute("flights", flightService.findAllBack());
         model.addAttribute("cargoes", storageService.findWithoutTransportListByTouristId(touristId));
 
         return "transportLists/createTransportList";
