@@ -14,7 +14,7 @@
 	<name>representativeOfficeTourFirm</name>
 	<description>Information system of the representative office of a travel company in a foreign country</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
