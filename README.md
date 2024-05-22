@@ -38,6 +38,6 @@
 ## Запуск
 Сначала нужно создать и заполнить src/main/resources/application.properies по .origin файлу
 ```
-./mvnw clean install
+./mvnw clean install -Dmaven.test.skip
 ./mvnw spring-boot:run
 ```
